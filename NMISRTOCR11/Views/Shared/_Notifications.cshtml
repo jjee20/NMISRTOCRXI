@@ -1,0 +1,40 @@
+﻿@if (TempData["success"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        // Display the success message
+        toastr.success('@Html.Raw(TempData["success"].ToString())');
+    </script>
+}
+
+
+@if (TempData["error"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        type = "text/javascript"
+        toastr.error('@Html.Raw(TempData["error"].ToString())');
+    </script>
+}
+
+@if (TempData["info"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        type = "text/javascript"
+        toastr.info('@Html.Raw(TempData["info"].ToString())');
+    </script>
+}
+
+@if (TempData["warning"] != null)
+{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        type = "text/javascript"
+        toastr.warning('@Html.Raw(TempData["warning"].ToString())');
+    </script>
+}

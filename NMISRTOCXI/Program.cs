@@ -1,28 +1,42 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+
 using DomainLayer.Models;
-using ServiceLayer.Services.IRepositories;
+using DomainLayer.Models.Common;
 using InfastructureLayer.Data;
-using thesis.Repositories;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.EntityFrameworkCore;
+using NMISRTOCXI.Repositories;
+using ServiceLayer.Common;
+using ServiceLayer.Services.IRepositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Get the connection string from the configuration
-var connectionString = builder.Configuration.GetConnectionString("thesisContextConnection") ?? throw new InvalidOperationException("Connection string 'thesisContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("NMISRTOCR11DbContextConnection") ?? throw new InvalidOperationException("Connection string 'NMISRTOCR11DbContextConnection' not found.");
 
 // Configure Entity Framework Core with SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
 	options.UseSqlServer(connectionString));
 
 // Configure Identity with custom roles
-builder.Services.AddIdentityCore<AccountDetails>(options => options.SignIn.RequireConfirmedAccount = true)
-	.AddRoles<IdentityRole>()
-	.AddEntityFrameworkStores<AppDbContext>();
+builder.Services.AddIdentity<AccountDetails, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
+	.AddEntityFrameworkStores<AppDbContext>()
+	.AddDefaultTokenProviders();
 
 // Add services to the container	
 builder.Services.AddControllersWithViews();
 builder.Services.AddMemoryCache();
+builder.Services.AddControllers()
+	.AddNewtonsoftJson(options =>
+	{
+		options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+	});
 
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.Configure<EmailSenderSettings>(builder.Configuration.GetSection("EmailSender"));
+builder.Services.AddSingleton<IEmailSender, SendGridEmailSender>();
+builder.Services.AddSingleton<IEmailSender, EmailSender>();
+builder.Services.AddAutoMapper(typeof(MappingProfile).Assembly);
 // Configure authentication cookie settings
 builder.Services.ConfigureApplicationCookie(options =>
 {

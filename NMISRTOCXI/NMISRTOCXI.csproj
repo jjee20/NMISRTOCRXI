@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -36,11 +36,91 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\Identity\Pages\Account\Login.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Logout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ChangePassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\DeletePersonalData.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Disable2fa.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\DownloadPersonalData.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Email.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\EnableAuthenticator.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ExternalLogins.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\GenerateRecoveryCodes.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\Index.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\PersonalData.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ResetAuthenticator.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\SetPassword.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\ShowRecoveryCodes.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\TwoFactorAuthentication.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_Layout.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_ManageNav.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_StatusMessage.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Manage\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\Register.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\RegisterConfirmation.cshtml" />
+    <None Include="Areas\Identity\Pages\Account\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\_ValidationScriptsPartial.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewImports.cshtml" />
+    <None Include="Areas\Identity\Pages\_ViewStart.cshtml" />
+    <None Include="Views\MeatDealers\Create.cshtml" />
+    <None Include="Views\MeatDealers\Delete.cshtml" />
+    <None Include="Views\MeatDealers\Details.cshtml" />
+    <None Include="Views\MeatDealers\Edit.cshtml" />
+    <None Include="Views\MeatDealers\Index.cshtml" />
+    <None Include="Views\MeatEstablishments\Create.cshtml" />
+    <None Include="Views\MeatEstablishments\Delete.cshtml" />
+    <None Include="Views\MeatEstablishments\Details.cshtml" />
+    <None Include="Views\MeatEstablishments\Edit.cshtml" />
+    <None Include="Views\MeatEstablishments\Index.cshtml" />
+    <None Include="Views\MeatInspectionReports\Create.cshtml" />
+    <None Include="Views\MeatInspectionReports\DailyIndex.cshtml" />
+    <None Include="Views\MeatInspectionReports\DailyInspection.cshtml" />
+    <None Include="Views\MeatInspectionReports\Delete.cshtml" />
+    <None Include="Views\MeatInspectionReports\Details.cshtml" />
+    <None Include="Views\MeatInspectionReports\Edit.cshtml" />
+    <None Include="Views\MeatInspectionReports\Generate.cshtml" />
+    <None Include="Views\MeatInspectionReports\Index.cshtml" />
+    <None Include="Views\MTVapplication\Create.cshtml" />
+    <None Include="Views\MTVapplication\Delete.cshtml" />
+    <None Include="Views\MTVapplication\Details.cshtml" />
+    <None Include="Views\MTVapplication\Edit.cshtml" />
+    <None Include="Views\MTVapplication\Index.cshtml" />
+    <None Include="Views\PassedForSlaughters\Create.cshtml" />
+    <None Include="Views\PassedForSlaughters\Delete.cshtml" />
+    <None Include="Views\PassedForSlaughters\Details.cshtml" />
+    <None Include="Views\PassedForSlaughters\Edit.cshtml" />
+    <None Include="Views\PassedForSlaughters\Index.cshtml" />
+    <None Include="Views\Postmortems\Create.cshtml" />
+    <None Include="Views\Postmortems\Delete.cshtml" />
+    <None Include="Views\Postmortems\Details.cshtml" />
+    <None Include="Views\Postmortems\Edit.cshtml" />
+    <None Include="Views\Postmortems\Index.cshtml" />
+    <None Include="Views\ReceivingReports\Create.cshtml" />
+    <None Include="Views\ReceivingReports\Delete.cshtml" />
+    <None Include="Views\ReceivingReports\Details.cshtml" />
+    <None Include="Views\ReceivingReports\Edit.cshtml" />
+    <None Include="Views\ReceivingReports\Index.cshtml" />
+    <None Include="Views\ReceivingReports\Inspect.cshtml" />
+    <None Include="Views\totalNoFitForHumanConsumptions\Create.cshtml" />
+    <None Include="Views\totalNoFitForHumanConsumptions\Delete.cshtml" />
+    <None Include="Views\totalNoFitForHumanConsumptions\Details.cshtml" />
+    <None Include="Views\totalNoFitForHumanConsumptions\Edit.cshtml" />
+    <None Include="Views\totalNoFitForHumanConsumptions\Index.cshtml" />
+    <None Include="Views\UsersManagement\Delete.cshtml" />
+    <None Include="Views\UsersManagement\Details.cshtml" />
+    <None Include="Views\UsersManagement\Edit.cshtml" />
+    <None Include="Views\UsersManagement\EditConfirmation.cshtml" />
+    <None Include="Views\UsersManagement\Index.cshtml" />
+    <None Include="Views\UsersManagement\IndexInspectorAdmin.cshtml" />
+    <None Include="Views\UsersManagement\MeatCheckDelete.cshtml" />
+    <None Include="Views\UsersManagement\MeatCheckDetails.cshtml" />
+    <None Include="Views\UsersManagement\MeatCheckEdit.cshtml" />
     <None Include="wwwroot\js\checklists.js" />
     <None Include="wwwroot\js\question.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Azure.Core" Version="1.39.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
